@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comicraft AI</title>
+</head>
+
+<body>
+
+    <h1>Comicraft AI</h1>
+
+    <h2>AI Comic Story Creator</h2>
+
+    <p>Create your own comic story easily with AI.</p>
+
+    <label>Enter your story idea:</label>
+    <br><br>
+
+    <textarea 
+        placeholder="Enter your story idea here..."
+        rows="6"
+        cols="40">
+    </textarea>
+
+    <br><br>
+
+    <button>Generate Comic</button>
+
+</body>
+</html>
