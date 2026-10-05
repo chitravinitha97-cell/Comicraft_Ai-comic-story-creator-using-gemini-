@@ -1,29 +1,218 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Comicraft AI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ComiCraft AI - Comic Story Creator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f1ff;
+      color: #222;
+    }
+
+    header {
+      background: #6c4cff;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #6c4cff;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5035d6;
+    }
+
+    #comic {
+      display: none;
+    }
+
+    .panel {
+      border: 3px solid #222;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 15px;
+      background: #fffbea;
+    }
+
+    .panel h3 {
+      color: #6c4cff;
+      margin-bottom: 10px;
+    }
+
+    .panel p {
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>Comicraft AI</h1>
+  <header>
+    <h1>🎨 ComiCraft AI</h1>
+    <p>AI Comic Story Creator</p>
+  </header>
 
-    <h2>AI Comic Story Creator</h2>
+  <div class="container">
 
-    <p>Create your own comic story easily with AI.</p>
+    <div class="card">
+      <h2>✨ Create Your Comic Story</h2>
+      <br>
 
-    <label>Enter your story idea:</label>
-    <br><br>
+      <label>Enter your story idea:</label>
 
-    <textarea 
-        placeholder="Enter your story idea here..."
-        rows="6"
-        cols="40">
-    </textarea>
+      <textarea id="storyIdea"
+        placeholder="Example: A young girl discovers a magical book..."></textarea>
 
-    <br><br>
+      <label>Choose a genre:</label>
 
-    <button>Generate Comic</button>
+      <select id="genre">
+        <option>Adventure</option>
+        <option>Fantasy</option>
+        <option>Comedy</option>
+        <option>Science Fiction</option>
+        <option>Superhero</option>
+      </select>
+
+      <button onclick="createComic()">
+        🚀 Create Comic
+      </button>
+    </div>
+
+    <div class="card" id="comic">
+
+      <h2>📖 Your Comic Story</h2>
+
+      <div class="panel">
+        <h3>Panel 1 - Beginning</h3>
+        <p id="panel1"></p>
+      </div>
+
+      <div class="panel">
+        <h3>Panel 2 - Adventure</h3>
+        <p id="panel2"></p>
+      </div>
+
+      <div class="panel">
+        <h3>Panel 3 - Climax</h3>
+        <p id="panel3"></p>
+      </div>
+
+      <div class="panel">
+        <h3>Panel 4 - Ending</h3>
+        <p id="panel4"></p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 ComiCraft AI | Create • Imagine • Enjoy</p>
+  </footer>
+
+  <script>
+
+    function createComic() {
+
+      const idea = document.getElementById("storyIdea").value;
+      const genre = document.getElementById("genre").value;
+
+      if (idea.trim() === "") {
+        alert("Please enter a story idea!");
+        return;
+      }
+
+      document.getElementById("panel1").innerText =
+        "Our " + genre.toLowerCase() +
+        " story begins with this idea: " + idea;
+
+      document.getElementById("panel2").innerText =
+        "The main character starts an exciting journey and faces unexpected challenges.";
+
+      document.getElementById("panel3").innerText =
+        "A difficult situation appears, but the hero uses courage and creativity to solve the problem.";
+
+      document.getElementById("panel4").innerText =
+        "The adventure comes to a happy ending. The hero learns an important lesson from the journey.";
+
+      document.getElementById("comic").style.display = "block";
+
+      document.getElementById("comic").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+  </script>
 
 </body>
 </html>
